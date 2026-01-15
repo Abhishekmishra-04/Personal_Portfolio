@@ -1,4 +1,4 @@
-## Abhishek Kumar Mishra – AI‑Powered Portfolio (Next.js)
+## Abhishek Kumar Mishra – AI‑Powered Portfolio
 
 Modern, production‑ready developer portfolio built with Next.js 16, React 19 and TypeScript.  
 This portfolio is designed specifically for recruiters and hiring managers: it is fast, structured, and includes AI tools that help you quickly understand my experience and skills.
@@ -10,7 +10,7 @@ This portfolio is designed specifically for recruiters and hiring managers: it i
 - **Name:** Abhishek Kumar Mishra  
 - **Role:** Full Stack Developer | Software Engineer  
 - **Location:** Uttar Pradesh, India (Open to Remote & Relocation)  
-- **Live Demo:** (add your final deployed URL here)  
+- **Live Demo:** https://abhishekkumarmishraportfolio.netlify.app/
 - **Tech Focus:** High‑performance, production‑ready web apps with clean architecture.
 
 This portfolio showcases:
@@ -32,8 +32,11 @@ This portfolio showcases:
 - **Deployment:** Optimized for Vercel or similar Node‑based platforms
 
 All portfolio content (summary, projects, experience, certifications, etc.) is centralized in a single data file for easy maintenance:
+<img width="1917" height="800" alt="image" src="https://github.com/user-attachments/assets/07628a89-0d90-4d47-a2af-1b036ebf0449" />
+<img width="1867" height="798" alt="image" src="https://github.com/user-attachments/assets/e2b32f10-2d78-41ef-8f6b-8d00dbe3b953" />
+<img width="1919" height="806" alt="image" src="https://github.com/user-attachments/assets/aa625d6f-a45b-4cbf-93d6-458e0b648f56" />
 
-- [`src/data/portfolio.ts`](./src/data/portfolio.ts)
+
 
 ---
 
