@@ -68,8 +68,8 @@ export const Projects = () => {
   return (
     <Section id="projects">
       <div className="mb-8">
-        <h2 className="text-3xl font-bold text-white mb-4">Featured Projects & GitHub Repositories</h2>
-        <p className="text-zinc-400 max-w-2xl mb-6">
+        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-4">Featured Projects & GitHub Repositories</h2>
+        <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mb-6">
           Real-world solutions demonstrating full-stack engineering, from database architecture and data pipelines to production frontend systems.
         </p>
 
@@ -79,10 +79,10 @@ export const Projects = () => {
             <button
               key={cat.id}
               onClick={() => setActiveFilter(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
+              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                 activeFilter === cat.id
                   ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-                  : "bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700"
+                  : "bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700"
               }`}
             >
               {cat.label}
@@ -95,14 +95,14 @@ export const Projects = () => {
         {filteredProjects.map((project, index) => (
           <div 
             key={index} 
-            className="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:shadow-lg hover:border-orange-500/30 transition-all flex flex-col relative"
+            className="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden hover:shadow-xl hover:border-orange-500/40 transition-all flex flex-col relative"
           >
             <div className="p-6 md:p-8 flex-1">
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                <h3 className="text-xl font-bold text-zinc-900 dark:text-white">{project.title}</h3>
                 <div className="flex gap-3">
                   {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors" title="View Code">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors" title="View Code">
                       <Github size={20} />
                     </a>
                   )}
@@ -116,47 +116,47 @@ export const Projects = () => {
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech.map((t) => (
-                  <span key={t} className="px-2.5 py-0.5 rounded-md bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-medium">
+                  <span key={t} className="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 text-xs font-medium">
                     {t}
                   </span>
                 ))}
               </div>
 
               <div className="mb-6">
-                <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-2 flex items-center gap-2">
-                  <Layers size={14} /> The Challenge & Solution
+                <h4 className="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-wider mb-2 flex items-center gap-2">
+                  <Layers size={14} className="text-orange-500" /> The Challenge & Solution
                 </h4>
-                <p className="text-zinc-400 text-sm leading-relaxed">
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
               <div className="space-y-4">
                 <div>
-                   <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-2">Key Features</h4>
-                   <ul className="list-disc list-outside ml-4 text-sm text-zinc-400 space-y-1">
+                   <h4 className="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-wider mb-2">Key Features</h4>
+                   <ul className="list-disc list-outside ml-4 text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
                       {project.features.map((f, i) => (
                         <li key={i}>{f}</li>
                       ))}
                    </ul>
                 </div>
 
-                  <div className="bg-zinc-950 p-3.5 rounded-lg border border-zinc-800 mt-4">
-                    <h4 className="text-sm font-semibold text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-2">
-                      <Zap size={14} /> Outcome
-                    </h4>
-                    <p className="text-sm text-zinc-400">
-                      {project.outcome}
-                    </p>
-                 </div>
+                <div className="bg-zinc-50 dark:bg-zinc-950 p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 mt-4">
+                  <h4 className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-2">
+                    <Zap size={14} /> Outcome
+                  </h4>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                    {project.outcome}
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* AI Explain Button */}
-            <div className="p-4 bg-zinc-950/60 border-t border-zinc-800">
+            <div className="p-4 bg-zinc-50/80 dark:bg-zinc-950/60 border-t border-zinc-200 dark:border-zinc-800">
                <button
                   onClick={() => handleExplain(project.title)}
-                  className="w-full py-2 bg-zinc-800/80 hover:bg-zinc-800 border border-orange-500/30 text-orange-400 hover:text-orange-300 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:border-orange-500/60 transition-colors shadow-sm"
+                  className="w-full py-2.5 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800/80 dark:hover:bg-zinc-800 border border-orange-500/30 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:border-orange-500/60 transition-colors shadow-xs cursor-pointer"
                >
                   <Sparkles size={16} />
                   Ask AI to Explain Architecture
@@ -170,26 +170,26 @@ export const Projects = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm z-10 p-6 overflow-y-auto"
+                    className="absolute inset-0 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-sm z-10 p-6 overflow-y-auto"
                   >
                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2 text-orange-400 font-bold">
+                        <div className="flex items-center gap-2 text-orange-500 font-bold">
                            <Bot size={20} />
                            AI Architecture Breakdown
                         </div>
-                        <button onClick={closeExplanation} className="text-zinc-400 hover:text-white">
+                        <button onClick={closeExplanation} className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white cursor-pointer">
                            <X size={20} />
                         </button>
                      </div>
                      
                      {isLoading ? (
-                        <div className="flex flex-col items-center justify-center h-40 gap-3 text-zinc-400">
-                           <Loader2 size={32} className="animate-spin text-orange-400" />
+                        <div className="flex flex-col items-center justify-center h-40 gap-3 text-zinc-500">
+                           <Loader2 size={32} className="animate-spin text-orange-500" />
                            <p className="text-sm">Analyzing codebase structure...</p>
                         </div>
                      ) : (
-                        <div className="prose prose-sm prose-invert text-zinc-300">
-                           <div className="whitespace-pre-wrap">{aiExplanation}</div>
+                        <div className="prose prose-sm dark:prose-invert text-zinc-700 dark:text-zinc-300">
+                           <div className="whitespace-pre-wrap leading-relaxed">{aiExplanation}</div>
                         </div>
                      )}
                   </motion.div>

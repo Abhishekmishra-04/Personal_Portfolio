@@ -48,7 +48,6 @@ export const AiAssistant = () => {
 
       if (!response.ok) throw new Error("Failed to fetch response");
 
-      // Handle stream or text
       const reader = response.body?.getReader();
       let assistantMessage = "";
       setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
@@ -67,7 +66,6 @@ export const AiAssistant = () => {
           });
         }
       } else {
-          // Fallback if not streaming (e.g. mock response)
           const text = await response.text();
           setMessages((prev) => {
             const newMessages = [...prev];
@@ -95,7 +93,7 @@ export const AiAssistant = () => {
   ];
 
   return (
-    <div className="bg-zinc-900 rounded-xl shadow-xl border border-zinc-800 overflow-hidden flex flex-col h-[500px] w-full max-w-md mx-auto md:mx-0">
+    <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden flex flex-col h-[500px] w-full max-w-md mx-auto md:mx-0">
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-500 to-pink-600 border-b border-white/10 p-4 text-white flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -133,7 +131,7 @@ export const AiAssistant = () => {
                   "max-w-[85%] rounded-2xl px-4 py-3 text-sm shadow-sm",
                   m.role === "user"
                     ? "bg-orange-500 text-white font-medium rounded-br-none"
-                    : "bg-zinc-800 text-zinc-300 border border-white/5 rounded-bl-none"
+                    : "bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-white/5 rounded-bl-none"
                 )}
               >
                 {m.content || <span className="animate-pulse">...</span>}
@@ -145,9 +143,9 @@ export const AiAssistant = () => {
         {/* Loading Indicator */}
         {isLoading && messages[messages.length - 1].role === "user" && (
            <div className="flex justify-start">
-              <div className="bg-zinc-800 text-zinc-500 border border-white/5 rounded-2xl rounded-bl-none px-4 py-3 shadow-sm flex items-center gap-2">
+              <div className="bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/5 rounded-2xl rounded-bl-none px-4 py-3 shadow-sm flex items-center gap-2">
                  <Loader2 size={16} className="animate-spin text-orange-500" />
-                 <span className="text-xs text-text-muted">Thinking...</span>
+                 <span className="text-xs">Thinking...</span>
               </div>
            </div>
         )}
@@ -156,7 +154,7 @@ export const AiAssistant = () => {
       {/* Suggested Questions */}
       {messages.length === 1 && (
         <div className="px-4 pb-2">
-           <p className="text-xs text-zinc-400 mb-2 font-medium">Suggested Questions:</p>
+           <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-2 font-medium">Suggested Questions:</p>
            <div className="flex flex-wrap gap-2">
              {suggestedQuestions.map((q) => (
                <button
@@ -164,7 +162,7 @@ export const AiAssistant = () => {
                  onClick={() => {
                    setInput(q);
                  }}
-                 className="text-xs bg-zinc-800 border border-zinc-700 text-zinc-300 px-3 py-1.5 rounded-full hover:bg-orange-500/10 hover:border-orange-500/40 hover:text-orange-400 transition-colors text-left"
+                 className="text-xs bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3 py-1.5 rounded-full hover:bg-orange-50 dark:hover:bg-orange-500/10 hover:border-orange-400 dark:hover:border-orange-500/40 hover:text-orange-600 dark:hover:text-orange-400 transition-colors text-left"
                >
                  {q}
                </button>
@@ -174,13 +172,13 @@ export const AiAssistant = () => {
       )}
 
       {/* Input */}
-      <form onSubmit={handleSubmit} className="p-3 bg-zinc-950 border-t border-zinc-800">
+      <form onSubmit={handleSubmit} className="p-3 bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
         <div className="relative flex items-center">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask anything about Abhishek..."
-            className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder:text-zinc-500 rounded-full py-3 pl-4 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500 transition-all"
+            className="w-full bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-500 rounded-full py-3 pl-4 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500 transition-all"
           />
           <button
             type="submit"
@@ -191,7 +189,7 @@ export const AiAssistant = () => {
           </button>
         </div>
         <div className="text-center mt-2">
-           <p className="text-[10px] text-zinc-500 flex items-center justify-center gap-1">
+           <p className="text-[10px] text-zinc-500 dark:text-zinc-500 flex items-center justify-center gap-1">
              <Sparkles size={10} /> AI responses generated from portfolio data
            </p>
         </div>

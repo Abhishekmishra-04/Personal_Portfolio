@@ -4,11 +4,11 @@ import { ExternalLink } from "lucide-react";
 
 export const CodingProfiles = () => {
   return (
-    <Section className="py-12 bg-zinc-900 text-white border border-zinc-800 rounded-2xl my-12 mx-4 md:mx-8 max-w-7xl">
+    <Section className="py-12 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-3xl my-12 mx-4 md:mx-8 max-w-7xl shadow-sm">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 px-4 md:px-8">
         <div>
           <h3 className="text-2xl font-bold mb-2">Coding Profiles</h3>
-          <p className="text-zinc-400">
+          <p className="text-zinc-600 dark:text-zinc-400">
             Check out my problem-solving track record across various platforms.
           </p>
         </div>
@@ -20,7 +20,7 @@ export const CodingProfiles = () => {
               href={profile.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 bg-zinc-800 text-zinc-300 rounded-lg hover:bg-zinc-700 transition-colors font-medium border border-zinc-700"
+              className="flex items-center gap-2 px-5 py-3 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-300 rounded-xl transition-colors font-semibold border border-zinc-200 dark:border-zinc-700 shadow-xs"
             >
               {profile.platform}
               <ExternalLink size={16} className="text-orange-500" />

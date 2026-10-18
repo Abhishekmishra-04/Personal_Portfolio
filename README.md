@@ -32,8 +32,8 @@ Imagine taking a standard, boring paper resume and turning it into an interactiv
 | 📬 **Working Contact Form** | Full validation (Name, Email, Subject, Message) + API backend. | Anyone can message Abhishek directly with zero hassle. |
 | 🔗 **1-Click Shareable Form Link** | Copies direct `/#contact` URL to clipboard. | Send the contact link directly to HR, clients, or team members! |
 | 🏗️ **Project Architecture Modals** | Click "Ask AI to Explain Architecture" on any project. | Demonstrates deep system design and database engineering knowledge. |
-| 📊 **Interactive Coding Profiles** | Direct links to LeetCode, CodeChef, HackerEarth, and Stack Overflow. | Verifiable proof of problem-solving abilities and algorithms. |
-| 📱 **100% Mobile & Dark Mode** | Sleek glassmorphism dark theme with orange accents. | Looks stunning on iPhones, Androids, tablets, and 4K desktop screens. |
+| 🌓 **Dark / Light Theme Toggle** | 1-click toggle between sleek dark mode and modern clean light mode. | Perfect readability under any ambient lighting condition. |
+| 📱 **100% Responsive Design** | Mobile-first layout with smooth micro-animations. | Looks stunning on iPhones, Androids, tablets, and 4K desktop screens. |
 
 ---
 

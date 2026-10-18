@@ -16,14 +16,14 @@ export const AiSection = () => {
       </div>
 
       <div className="relative z-10 mb-12 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800 border border-zinc-700 text-orange-500 text-sm font-bold mb-6 shadow-sm">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-orange-600 dark:text-orange-500 text-sm font-bold mb-6 shadow-sm">
           <Sparkles size={16} />
           AI-Powered Portfolio
         </div>
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6 tracking-tight">
           Interact with my <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-600">Digital Twin</span>
         </h2>
-        <p className="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
           I don&apos;t just build websites; I build intelligent systems. Use these AI tools to explore my experience, match your JD, or get a quick summary.
         </p>
       </div>
@@ -32,7 +32,7 @@ export const AiSection = () => {
         {/* Left Column: Chatbot (Sticky) */}
         <div className="lg:col-span-5 lg:sticky lg:top-24">
           <AiAssistant />
-          <div className="mt-6 p-4 bg-zinc-900 rounded-xl border border-zinc-800 text-sm text-zinc-400">
+          <div className="mt-6 p-4 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-600 dark:text-zinc-400 shadow-sm">
             <strong>💡 Pro Tip:</strong> Ask specific technical questions like &quot;How did he optimize database queries?&quot; or &quot;What is his experience with AWS?&quot;
           </div>
         </div>
