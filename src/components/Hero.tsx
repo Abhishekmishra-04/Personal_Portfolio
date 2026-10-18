@@ -2,7 +2,7 @@
 
 import { Section } from "@/components/ui/Section";
 import { portfolioData } from "@/data/portfolio";
-import { Download, MapPin } from "lucide-react";
+import { Download, MapPin, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -31,6 +31,13 @@ export const Hero = () => {
               {portfolioData.summary}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-600 text-white rounded-lg font-medium hover:from-orange-600 hover:to-pink-700 transition-all shadow-lg shadow-orange-500/20"
+              >
+                Get in Touch
+                <MessageSquare size={20} />
+              </a>
               <a
                 href="/resume.pdf"
                 target="_blank"

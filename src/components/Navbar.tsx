@@ -24,6 +24,7 @@ export const Navbar = () => {
     { name: "Education", href: "#education" },
     { name: "Projects", href: "#projects" },
     { name: "Why Me", href: "#why-hire-me" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (

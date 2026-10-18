@@ -42,17 +42,57 @@ export const Projects = () => {
     setAiExplanation(null);
   };
 
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filteredProjects = portfolioData.projects.filter((project) => {
+    if (activeFilter === "all") return true;
+    if (activeFilter === "fullstack") {
+      return project.tech.some((t) => ["Node.js", "MySQL", "MongoDB", "Express", "REST APIs"].includes(t));
+    }
+    if (activeFilter === "frontend") {
+      return project.tech.some((t) => ["React", "TypeScript", "Tailwind CSS", "JavaScript", "HTML5"].includes(t));
+    }
+    if (activeFilter === "ai") {
+      return project.tech.some((t) => ["Python", "NLP", "Machine Learning", "OpenAI API", "AI Integration", "Data Engineering"].includes(t));
+    }
+    return true;
+  });
+
+  const categories = [
+    { id: "all", label: `All Projects (${portfolioData.projects.length})` },
+    { id: "fullstack", label: "Full Stack & APIs" },
+    { id: "frontend", label: "Frontend & Web" },
+    { id: "ai", label: "AI & Data Engineering" },
+  ];
+
   return (
     <Section id="projects">
-      <div className="mb-12">
-        <h2 className="text-3xl font-bold text-white mb-4">Featured Projects</h2>
-        <p className="text-zinc-400 max-w-2xl">
-          Real-world solutions demonstrating full-stack capabilities, from database design to frontend optimization.
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold text-white mb-4">Featured Projects & GitHub Repositories</h2>
+        <p className="text-zinc-400 max-w-2xl mb-6">
+          Real-world solutions demonstrating full-stack engineering, from database architecture and data pipelines to production frontend systems.
         </p>
+
+        {/* Category Tabs */}
+        <div className="flex flex-wrap gap-2.5">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveFilter(cat.id)}
+              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
+                activeFilter === cat.id
+                  ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
+                  : "bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {portfolioData.projects.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <div 
             key={index} 
             className="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden hover:shadow-lg hover:border-orange-500/30 transition-all flex flex-col relative"
@@ -101,11 +141,11 @@ export const Projects = () => {
                    </ul>
                 </div>
 
-                 <div className="bg-midnight p-3 rounded-lg border border-white/5 mt-4">
+                  <div className="bg-zinc-950 p-3.5 rounded-lg border border-zinc-800 mt-4">
                     <h4 className="text-sm font-semibold text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-2">
                       <Zap size={14} /> Outcome
                     </h4>
-                    <p className="text-sm text-text-muted">
+                    <p className="text-sm text-zinc-400">
                       {project.outcome}
                     </p>
                  </div>
@@ -113,10 +153,10 @@ export const Projects = () => {
             </div>
 
             {/* AI Explain Button */}
-            <div className="p-4 bg-midnight/30 border-t border-white/5">
+            <div className="p-4 bg-zinc-950/60 border-t border-zinc-800">
                <button
                   onClick={() => handleExplain(project.title)}
-                  className="w-full py-2 bg-midnight-light border border-sky-blue/30 text-sky-blue rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-sky-blue/10 transition-colors shadow-sm"
+                  className="w-full py-2 bg-zinc-800/80 hover:bg-zinc-800 border border-orange-500/30 text-orange-400 hover:text-orange-300 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:border-orange-500/60 transition-colors shadow-sm"
                >
                   <Sparkles size={16} />
                   Ask AI to Explain Architecture
@@ -130,25 +170,25 @@ export const Projects = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute inset-0 bg-midnight/95 backdrop-blur-sm z-10 p-6 overflow-y-auto"
+                    className="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm z-10 p-6 overflow-y-auto"
                   >
                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2 text-sky-blue font-bold">
+                        <div className="flex items-center gap-2 text-orange-400 font-bold">
                            <Bot size={20} />
                            AI Architecture Breakdown
                         </div>
-                        <button onClick={closeExplanation} className="text-text-muted hover:text-white">
+                        <button onClick={closeExplanation} className="text-zinc-400 hover:text-white">
                            <X size={20} />
                         </button>
                      </div>
                      
                      {isLoading ? (
-                        <div className="flex flex-col items-center justify-center h-40 gap-3 text-text-muted">
-                           <Loader2 size={32} className="animate-spin text-sky-blue" />
+                        <div className="flex flex-col items-center justify-center h-40 gap-3 text-zinc-400">
+                           <Loader2 size={32} className="animate-spin text-orange-400" />
                            <p className="text-sm">Analyzing codebase structure...</p>
                         </div>
                      ) : (
-                        <div className="prose prose-sm prose-invert text-text-muted">
+                        <div className="prose prose-sm prose-invert text-zinc-300">
                            <div className="whitespace-pre-wrap">{aiExplanation}</div>
                         </div>
                      )}

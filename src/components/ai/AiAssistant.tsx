@@ -156,16 +156,15 @@ export const AiAssistant = () => {
       {/* Suggested Questions */}
       {messages.length === 1 && (
         <div className="px-4 pb-2">
-           <p className="text-xs text-text-muted mb-2 font-medium">Suggested Questions:</p>
+           <p className="text-xs text-zinc-400 mb-2 font-medium">Suggested Questions:</p>
            <div className="flex flex-wrap gap-2">
              {suggestedQuestions.map((q) => (
                <button
                  key={q}
                  onClick={() => {
                    setInput(q);
-                   // Optional: Auto-submit
                  }}
-                 className="text-xs bg-midnight-light border border-white/5 text-text-muted px-3 py-1.5 rounded-full hover:bg-sky-blue/10 hover:border-sky-blue/30 hover:text-sky-blue transition-colors text-left"
+                 className="text-xs bg-zinc-800 border border-zinc-700 text-zinc-300 px-3 py-1.5 rounded-full hover:bg-orange-500/10 hover:border-orange-500/40 hover:text-orange-400 transition-colors text-left"
                >
                  {q}
                </button>
@@ -175,24 +174,24 @@ export const AiAssistant = () => {
       )}
 
       {/* Input */}
-      <form onSubmit={handleSubmit} className="p-3 bg-midnight border-t border-white/5">
+      <form onSubmit={handleSubmit} className="p-3 bg-zinc-950 border-t border-zinc-800">
         <div className="relative flex items-center">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask anything about Abhishek..."
-            className="w-full bg-midnight-light text-text-main placeholder:text-text-muted rounded-full py-3 pl-4 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-sky-blue/20 transition-all"
+            className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder:text-zinc-500 rounded-full py-3 pl-4 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500 transition-all"
           />
           <button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className="absolute right-1.5 p-2 bg-sky-blue text-midnight rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:bg-sky-blue/90 transition-colors"
+            className="absolute right-1.5 p-2 bg-orange-500 text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:bg-orange-600 transition-colors"
           >
             {isLoading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
           </button>
         </div>
         <div className="text-center mt-2">
-           <p className="text-[10px] text-text-muted flex items-center justify-center gap-1">
+           <p className="text-[10px] text-zinc-500 flex items-center justify-center gap-1">
              <Sparkles size={10} /> AI responses generated from portfolio data
            </p>
         </div>

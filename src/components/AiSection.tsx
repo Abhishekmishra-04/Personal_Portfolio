@@ -3,6 +3,7 @@
 import { Section } from "@/components/ui/Section";
 import { AiAssistant } from "@/components/ai/AiAssistant";
 import { SkillMatcher } from "@/components/ai/SkillMatcher";
+import { SummaryGenerator } from "@/components/ai/SummaryGenerator";
 import { Sparkles } from "lucide-react";
 
 export const AiSection = () => {
@@ -37,8 +38,9 @@ export const AiSection = () => {
         </div>
 
         {/* Right Column: Tools */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 space-y-6">
           <SkillMatcher />
+          <SummaryGenerator />
         </div>
       </div>
     </Section>

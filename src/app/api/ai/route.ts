@@ -46,8 +46,8 @@ export async function POST(req: Request) {
           mockResponse = "You should hire Abhishek because he ships features, not just code. He understands the full stack—from database query optimization to frontend performance. His experience with scaling Job Portals and AI apps proves he is ready for production environments.";
         } else if (lastMessage.includes("project") || lastMessage.includes("work")) {
            mockResponse = "Abhishek has built several complex projects. His 'Job Portal' features a dual-database architecture (MySQL + MongoDB) for performance, and his 'Netflix Clone' demonstrates mastery of complex UI/UX. Would you like a deep dive into the architecture of a specific project?";
-        } else if (lastMessage.includes("contact") || lastMessage.includes("email")) {
-           mockResponse = `You can reach Abhishek at ${portfolioData.personal.email} or connect on LinkedIn at ${portfolioData.personal.linkedin}.`;
+        } else if (lastMessage.includes("contact") || lastMessage.includes("email") || lastMessage.includes("form") || lastMessage.includes("reach") || lastMessage.includes("phone")) {
+           mockResponse = `You can reach Abhishek directly at ${portfolioData.personal.email}, on Phone/WhatsApp at ${portfolioData.personal.phone}, connect on LinkedIn at ${portfolioData.personal.linkedin}, or send a message using the Contact Form on this page (jump to the form: #contact).`;
         } else {
            mockResponse = "I'm Abhishek's AI assistant. I can tell you about his Full Stack skills, his experience with scalable systems, or deep dive into his projects like the Job Portal or AI Portfolio. What would you like to know?";
         }
